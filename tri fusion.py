@@ -31,16 +31,14 @@ def recherche_dico(x,l):
     l=tri_fusion(l)
     g=0
     d=len(l)-1
-    i=0
-    while d!=g and i<20:
+    while d!=g:
         m=(g+d)//2
-        i+=1
         if l[m]==x:
             return True
         elif l[m]<x:
             g=m+1
         else:
             d=m
-    return False,i
+    return False
 
-print(recherche_dico(2,[2,13,1,5]))
+print(recherche_dico(2,[20,13,1,5,45,48,89,8,68,468,68,2]))

@@ -1,0 +1,29 @@
+
+def divise(L):
+    return (L[:len(L)//2],L[len(L)//2:])
+
+def fusion(l1,l2):
+    res=[]
+    i1=0
+    i2=0
+    while i1<len(l1) and i2<len(l2):
+        if l1[i1]<l2[i2]:
+            res.append(l1[i1])
+            i1+=1
+        else:
+            res.append(l2[i2])
+            i2+=1
+    for i in range(i1,len(l1)):
+        res.append(l1[i])
+    for i in range(i2,len(l2)):
+        res.append(l2[i])
+    return res
+
+def tri_fusion(L):
+    if len(L)<=1:
+        return L
+    (l1,l2)=divise(L)
+    return fusion(tri_fusion(l1),tri_fusion(l2))
+
+
+print(tri_fusion([12,7,2,3,6,25,1,35,4,85,456,45]))

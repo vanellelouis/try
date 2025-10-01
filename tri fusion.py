@@ -42,3 +42,20 @@ def recherche_dico(x,l):
     return False
 
 print(recherche_dico(2,[20,13,1,5,45,48,89,8,68,468,68,2]))
+
+def dyn_fibo(n):
+    l=[0,1]
+    while len(l)<=n:
+        l.append(l[-1]+l[-2])
+    return l[n]
+
+def fibo_malin(n):
+    l=[0,1]
+    for i in range(2,n+1):
+        l[i%2]=l[-1]+l[-2]
+    return l[n%2]
+
+
+print(dyn_fibo(300)==fibo_malin(300))
+
+

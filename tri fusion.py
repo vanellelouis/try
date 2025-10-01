@@ -26,4 +26,21 @@ def tri_fusion(L):
     return fusion(tri_fusion(l1),tri_fusion(l2))
 
 
-print(tri_fusion([12,7,2,3,6,25,1,35,4,85,456,45]))
+#print(tri_fusion([12,7,2,3,6,25,1,35,4,85,456,45]))
+def recherche_dico(x,l):
+    l=tri_fusion(l)
+    g=0
+    d=len(l)-1
+    i=0
+    while d!=g and i<20:
+        m=(g+d)//2
+        i+=1
+        if l[m]==x:
+            return True
+        elif l[m]<x:
+            g=m+1
+        else:
+            d=m
+    return False,i
+
+print(recherche_dico(2,[2,13,1,5]))
